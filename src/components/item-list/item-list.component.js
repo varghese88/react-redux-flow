@@ -1,5 +1,5 @@
 import React from "react";
-import {Item} from './item';
+import {Item} from './item.component';
 import "./item-list.scss";
 
 export class ItemList extends React.Component{
