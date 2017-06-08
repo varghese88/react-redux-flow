@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import "./item-list.scss";
 
 export class Item extends React.Component{
@@ -6,7 +7,7 @@ export class Item extends React.Component{
     getRemoveBtnAction(){
         return {
             type: 'REMOVE_BUTTON_ACTION',
-            payload:this.props.post
+            payload:this.props.item
         }
     }
 
@@ -16,10 +17,10 @@ export class Item extends React.Component{
                 
             <div className="flex-row">
                 <div className="flex-column title">
-                    {this.props.post.title}
+                    {this.props.item.title}
                 </div>
                 <div className="flex-column description">
-                    {this.props.post.body}
+                    {this.props.item.body}
                 </div>
                 <div className="flex-column">
                     <button onClick={()=>this.props.callbackFn(this.getRemoveBtnAction())} className="btn btn-danger">remove</button>
@@ -29,3 +30,8 @@ export class Item extends React.Component{
         );
     }
 }
+
+Item.PropTypes = {
+    callbackFn:PropTypes.func,
+    item:PropTypes.object.isRequired
+};

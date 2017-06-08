@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import {ItemList} from '../../components/item-list/item-list.component';
 
 export class PostListPage extends React.Component{
@@ -22,8 +23,15 @@ export class PostListPage extends React.Component{
         return (
             <div className="container">
                 <h1><b>New Posts</b></h1>
-                <ItemList posts={this.props.posts} callbackFn={(action)=>this.callbackFn(action)} />
+                <ItemList items={this.props.posts} callbackFn={(action)=>this.callbackFn(action)} />
             </div>
         );
     }
 }
+PostListPage.PropTypes = {
+    callbackFn:PropTypes.func,
+    removePost:PropTypes.func,
+    getPosts:PropTypes.func,
+    posts:PropTypes.array.isRequired,
+
+};

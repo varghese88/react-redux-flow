@@ -1,12 +1,13 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import {Item} from './item.component';
 import "./item-list.scss";
 
 export class ItemList extends React.Component{
     render(){
-        const list = this.props.posts.map((post,index)=>{
+        const list = this.props.items.map((item,index)=>{
             return (
-                <Item key={index} post={post} callbackFn={(action)=>this.props.callbackFn(action)} />
+                <Item key={index} item={item} callbackFn={(action)=>this.props.callbackFn(action)} />
             );
         }); 
         return (
@@ -25,4 +26,8 @@ export class ItemList extends React.Component{
             </div>
         );
     }
+}
+ItemList.PropTypes = {
+    callbackFn:PropTypes.func,
+    items:PropTypes.array.isRequired
 }
