@@ -7,7 +7,7 @@ export class ItemList extends React.Component{
     render(){
         const list = this.props.items.map((item,index)=>{
             return (
-                <Item key={index} item={item} callbackFn={(action)=>this.props.callbackFn(action)} />
+                <Item key={index} item={item} callbackFn={(event)=>this.props.callbackFn(event)} />
             );
         }); 
         return (

@@ -4,9 +4,9 @@ import "./item-list.scss";
 
 export class Item extends React.Component{
 
-    getRemoveBtnAction(){
+    getRemoveBtnEventPayload(){
         return {
-            type: 'REMOVE_BUTTON_ACTION',
+            type: 'REMOVE_BUTTON_CLICK',
             payload:this.props.item
         }
     }
@@ -23,7 +23,7 @@ export class Item extends React.Component{
                     {this.props.item.body}
                 </div>
                 <div className="flex-column">
-                    <button onClick={()=>this.props.callbackFn(this.getRemoveBtnAction())} className="btn btn-danger">remove</button>
+                    <button onClick={()=>this.props.callbackFn(this.getRemoveBtnEventPayload())} className="btn btn-danger">remove</button>
                 </div>
             </div>
                 

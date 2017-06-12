@@ -8,10 +8,10 @@ export class PostListPage extends React.Component{
         this.props.getPosts();
     }
 
-    callbackFn(action){
-        switch (action.type) {
-            case 'REMOVE_BUTTON_ACTION':
-                this.props.removePost(action.payload);
+    callbackFn(event){
+        switch (event.type) {
+            case 'REMOVE_BUTTON_CLICK':
+                this.props.removePost(event.payload);
                 break;
             default:
                 break;
@@ -23,7 +23,7 @@ export class PostListPage extends React.Component{
         return (
             <div className="container">
                 <h1><b>New Posts</b></h1>
-                <ItemList items={this.props.posts} callbackFn={(action)=>this.callbackFn(action)} />
+                <ItemList items={this.props.posts} callbackFn={(event)=>this.callbackFn(event)} />
             </div>
         );
     }
