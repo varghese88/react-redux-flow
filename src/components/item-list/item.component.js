@@ -1,14 +1,24 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import "./item-list.scss";
+import {CustomButton} from "../button/button.component"
 
 export class Item extends React.Component{
 
-    getRemoveBtnEventPayload(){
-        return {
-            type: 'REMOVE_BUTTON_CLICK',
-            payload:this.props.item
+    getButtonEventPayload(event){
+        let payLoad = {};
+        switch (event.type) {
+            case "BUTTON_CLICK":
+                payLoad = {
+                    type: 'REMOVE_BUTTON_CLICK',
+                    payload:this.props.item
+                }
+                break;
+        
+            default:
+                break;
         }
+        return payLoad;
     }
 
     render(){
@@ -23,7 +33,7 @@ export class Item extends React.Component{
                     {this.props.item.body}
                 </div>
                 <div className="flex-column">
-                    <button onClick={()=>this.props.callbackFn(this.getRemoveBtnEventPayload())} className="btn btn-danger">remove</button>
+                    <CustomButton name = {'Remove'} callbackFn = {(event)=>this.props.callbackFn(this.getButtonEventPayload(event))} />
                 </div>
             </div>
                 
