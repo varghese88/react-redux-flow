@@ -1,7 +1,8 @@
 import React from "react";
+import { browserHistory } from 'react-router'
 import PropTypes from 'prop-types';
 import {ItemList} from '../../components/item-list/item-list.component';
-
+import {CustomButton } from '../../components/button/button.component'
 export class PostListPage extends React.Component{
     
     componentWillMount(){
@@ -13,6 +14,9 @@ export class PostListPage extends React.Component{
             case 'REMOVE_BUTTON_CLICK':
                 this.props.removePost(event.payload);
                 break;
+             case 'NEXT_PAGE':
+                browserHistory.push('/details');
+                break;
             default:
                 break;
         }
@@ -22,6 +26,7 @@ export class PostListPage extends React.Component{
 
         return (
             <div className="container">
+                <CustomButton name = {'Next Page'} callbackFn = {()=>this.callbackFn({type:'NEXT_PAGE'})} />
                 <h1><b>New Posts</b></h1>
                 <ItemList items={this.props.posts} callbackFn={(event)=>this.callbackFn(event)} />
             </div>
