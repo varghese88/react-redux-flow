@@ -3,9 +3,7 @@ import React from "react";
 export class CustomButton extends React.Component{
 
     getClickBtnEvent(){
-        return {
-            type: 'BUTTON_CLICK',
-        }
+        return { type: 'BUTTON_CLICK'}
     }
 
     render(){
