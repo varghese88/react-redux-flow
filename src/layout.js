@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Router, Route, browserHistory, IndexRoute } from "react-router"
 import PostListPageContainer  from './pages/post-list/post-list.container';
 import PostListDetailsPageContainer  from './pages/post-details/post-details.container';
-import { Main } from './main';
+import { Main } from './pages/main';
 import { NavBar} from './components/navigationbar/navbar.component'
 
 export class AppLayout extends Component{

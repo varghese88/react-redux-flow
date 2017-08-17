@@ -1,9 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
+const CompressionPlugin = require('compression-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
     entry: {
+        vendor:'./src/vendor.js',
         app:'./src/app.js'
     },
     output: {
@@ -11,7 +13,7 @@ const config = {
         filename: '[name].js'
     },
     resolve: {
-        extensions: ['.js','.scss']
+        extensions: ['.js','.scss','.json']
     },
     module: {
         rules: [
@@ -27,8 +29,10 @@ const config = {
             { test: /\.json$/, loader: 'json-loader' },
             { test: /\.css$/, loader: 'style-loader!css-loader' },
             { test: /\.(gif|png|jpe?g)$/i, loader: 'file-loader?name=dist/images/[name].[ext]' },
-            { test: /\.woff2?$/, loader: 'url-loader?name=dist/fonts/[name].[ext]&limit=10000&mimetype=application/font-woff' },
-            { test: /\.(ttf|eot|svg)$/, loader: 'file-loader?name=dist/fonts/[name].[ext]' },
+            { test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
+            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=10000&mimetype=application/octet-stream" },
+            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader" },
+            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=10000&mimetype=image/svg+xml" },
             {
                 test: /\.scss$/,
                 use: [ { loader: "style-loader" }, { loader: "css-loader" }, { loader: "sass-loader" }]
@@ -67,6 +71,13 @@ if (!isProd) {
     }),
     new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
     new webpack.NoEmitOnErrorsPlugin(),
+    // new CompressionPlugin({
+    //     asset: "[path].gz[query]",
+    //     algorithm: "gzip",
+    //     test: /\.js$|\.css$|\.html$/,
+    //     threshold: 10240,
+    //     minRatio: 0
+    // }),
     new CopyWebpackPlugin([{ from: './src/index.html' }], {})
   ]);
 }
