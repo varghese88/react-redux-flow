@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import "./item-list.scss";
 import {CustomButton} from "../button/button.component"
 
-export class Item extends React.Component{
+export class Item extends Component{
 
     getButtonEventPayload(event){
         let payLoad = {};

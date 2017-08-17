@@ -1,6 +1,6 @@
-import React from "react";
+import React, { Component } from "react";
 
-export class CustomButton extends React.Component{
+export class CustomButton extends Component{
 
     getClickBtnEvent(){
         return { type: 'BUTTON_CLICK'}

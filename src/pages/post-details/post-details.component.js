@@ -1,14 +1,14 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { browserHistory } from 'react-router'
 import {CustomButton } from '../../components/button/button.component'
 
-export class PostListDetailsPage extends React.Component{
+export class PostListDetailsPage extends Component{
     
     callbackFn(event){
         switch (event.type) {
             case 'BACK_BUTTON_CLICK':
-                browserHistory.push('/');
+                browserHistory.push('/main');
                 break;
             default:
                 break;

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import { browserHistory } from 'react-router'
 import PropTypes from 'prop-types';
 import {ItemList} from '../../components/item-list/item-list.component';
 import {CustomButton } from '../../components/button/button.component'
-export class PostListPage extends React.Component{
+export class PostListPage extends Component{
     
     componentWillMount(){
         this.props.getPosts();

@@ -1,12 +1,15 @@
 .flex-container{
     display: flex;
     flex-direction: column;
+    overflow: auto;
+    height:66vh;
 }
 
 .flex-row{
     display: flex;
     flex-direction: row;
     flex-grow: 1;
+    min-height: 10vh;
     align-items: center;
     border:1px solid black;
 }

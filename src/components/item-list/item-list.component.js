@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import {Item} from './item.component';
 import "./item-list.scss";
 
-export class ItemList extends React.Component{
+export class ItemList extends Component{
     render(){
         const list = this.props.items.map((item,index)=>{
             return (
