@@ -15,6 +15,11 @@ export class PostListDetailsPage extends Component{
         }
     }
 
+    componentWillMount(){
+        this.props.savePost();
+        this.props.editPost();
+    }
+
     render(){
 
         return (

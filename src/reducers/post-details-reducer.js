@@ -2,8 +2,11 @@
 const PostDetailsReducer = (state = {},action) =>{
     switch (action.type) {
     
-        case "DETAIL_POST":
-            action.payload.posts.pop();
+        case "EDIT_POST":
+            console.log('----edit post ----');
+        break;
+        case "SAVE_POST":
+           console.log('----save post ----');
         break;
         
         default:
